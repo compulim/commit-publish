@@ -12,14 +12,24 @@ My template for latest ES6 and CI/CD with Travis CI.
   * `docker pull caktux/travis-cli`
   * `docker run --rm caktux/travis-cli encrypt 12345678-1234-5678-abcd-12345678abcd -r your-org/your-repo`
 3. Modify `.travis.yml`
-  * Set `deploy.api_key.secure` to the encrypted token
-  * Set `deploy.email` to your NPM email
+  * Set `deploy.npm.api_key.secure` to the encrypted token
+  * Set `deploy.npm.email` to your NPM email
+
+### Update GitHub token in `.travis.yml`
+
+1. On GitHub, create a personal access token with access to `repo`
+2. Encrypt the token using Travis CLI
+  * `docker pull caktux/travis-cli`
+  * `docker run --rm caktux/travis-cli encrypt 1234567812345678abcd12345678abcd -r your-org/your-repo`
+3. Modify `.travis.yml`
+  * Set `deploy.releases.api_key.secure` to the encrypted token
+  * Set `deploy.releases.email` to your NPM email
 
 ### Setup Travis
 
 1. In settings, enable "Build pushed branches"
 
-## Release a deployment
+## Deploy a release
 
-1. `npm version 1.0.0`
-2. `git push --tags`
+1. Run `npm version 1.0.0`
+2. Run `git push origin v1.0.0`
