@@ -2,14 +2,17 @@
   "name": "commit-publish-template",
   "version": "1.0.0-master.f523fb9",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "babel --out-dir lib src/. --ignore **/*.spec.js,**/*.test.js",
     "clean": "npx rimraf lib",
-    "commit-publish": "gulp commit-publish",
+    "version-commit": "gulp version-commit",
     "test": "jest"
   },
   "author": "William Wong <compulim@hotmail.com> (http://compulim.info/)",
+  "files": [
+    "lib/**/*"
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
