@@ -22,4 +22,4 @@ My template for latest ES6 and CI/CD with Travis CI.
 ## Release a deployment
 
 1. `npm version 1.0.0`
-2. `git push`
+2. `git push --tags`
