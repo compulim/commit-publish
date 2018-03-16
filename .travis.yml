@@ -3,6 +3,8 @@ node_js:
   - "9"
 before_script:
   - npm run build
+before_deploy:
+  - npm run versionCommit
 deploy:
   # - provider: npm
   #   api_key:

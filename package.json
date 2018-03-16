@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel --out-dir lib src/. --ignore **/*.spec.js,**/*.test.js",
     "clean": "npx rimraf lib",
-    "prepublishOnly": "npx gulp-cli version-commit",
+    "versionCommit": "npx gulp-cli version-commit",
     "test": "jest"
   },
   "author": "William Wong <compulim@hotmail.com> (http://compulim.info/)",
