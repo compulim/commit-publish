@@ -4,6 +4,8 @@ node_js:
 before_script:
   - npm run build
 before_deploy:
+  - git config --local user.name "William Wong"
+  - git config --local user.email "compulim@hotmail.com"
   - npm run versionCommit
 deploy:
   # - provider: npm
