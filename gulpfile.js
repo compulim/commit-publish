@@ -23,5 +23,5 @@ gulp.task('version-commit', async () => {
 
   return gulp
     .src('package.json')
-    .pipe(exec(`npm --no-git-tag-version version ${ nextVersion }`));
+    .pipe(exec(`npm version ${ nextVersion }`));
 });
