@@ -1,12 +1,12 @@
 {
   "name": "commit-publish-template",
-  "version": "1.0.0-0",
+  "version": "0.0.1-0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel --out-dir lib src/. --ignore **/*.spec.js,**/*.test.js",
     "clean": "npx rimraf lib",
-    "version-commit": "npx gulp-cli version-commit",
+    "prepare": "npx gulp-cli version-commit",
     "test": "jest"
   },
   "author": "William Wong <compulim@hotmail.com> (http://compulim.info/)",
