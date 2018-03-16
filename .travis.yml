@@ -21,5 +21,4 @@ deploy:
       secure: "MHeaFv2A/rfqMP3yTGS22WhWK9XVaH+d2oJa/gAtIvYm0wF4sX757Oz/SVmcXnsRPlk+1J0wGA17GPTh6aCYqQ3FOnbZiauFijQI/zjRuPepWilyjVkgwXiWgeRSkaTVfgBzbNRBmvdBf+Se7RnAdjfdJnErceXqqibMLvkqnSIWn2Tfw7GrRrhsBlOYVkNeehISBVUAPcRgpINwUgLEqzY/V3GOho91XKN3UUYr3q7JxC8/ChJfOMW0xiAz/FTM7NtynEL29mf14XcTxhKMY8nOxC8WDU2w/LECxfOV7BiX8m1Ylz/XYN+vyd1QLLnjlO9/KMouiDFpW3PHOKCrU1jcvz8sFw3CKSBFSIrW9JtlPwEcp9/myVP2tf73QbBjEy6RKIGlw+LHF4FjhVK1z0+F+s/Hcwuc3H+1fTif8jtxHUjnUbRpshlxmX1LuHwgZF46ntUzurlZEkn3Iod8XRERaDDn2ViwNaoCsM6W/MTyhXHPcRh04zb6CPydwL3zGe71T16Q41fwPwFo4mPgnFDcg8qMPjUCeck2lcVl7jJPPwZGdTzBK6WZsbze7ad+O3oO6yv/vZerFPk2BuNfoJkTYo2+U3BCX96ojeLxq+pwvWVIbOrqYkjyZEB0dgEHJ8y/Q8ZpgudpmocUJ4NIGIp09fxWleZb8x1LeZiwdUQ="
     on:
       branch: release
-    draft: true
     skip_cleanup: true
