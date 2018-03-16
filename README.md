@@ -18,3 +18,8 @@ My template for latest ES6 and CI/CD with Travis CI.
 ### Setup Travis
 
 1. In settings, enable "Build pushed branches"
+
+## Release a deployment
+
+1. `npm version 1.0.0`
+2. `git push`
