@@ -13,7 +13,7 @@ We want to make sure every official packages, not pre-releases, will be tagged b
 ### Update NPM token in `.travis.yml`
 
 1. Run `npm token create` and write down the GUID token
-2. Encrypt the token using Travis CLI
+2. Encrypt the token using Travis CLI or thru a [webpage](https://travis-encrypt.github.io/)
   * `docker pull caktux/travis-cli`
   * `docker run --rm caktux/travis-cli encrypt 12345678-1234-5678-abcd-12345678abcd -r your-org/your-repo`
 3. Modify `.travis.yml`
@@ -32,6 +32,7 @@ We want to make sure every official packages, not pre-releases, will be tagged b
 
 1. Enable Travis CI for your project
 2. In project settings, enable "Build pushed branches"
+  * You may want to "Limit concurrent jobs" to 1 if you tend to push tags and commits quickly
 
 ## Deploy a release
 
@@ -46,7 +47,10 @@ When Travis CI completed, you can verify by:
 2. Run `npm show your-package versions` should list `1.0.0`
 3. Run `npm dist-tags ls your-package` should tag `1.0.0` as `latest`
 
-After you deploy release `1.0.0`, you may want to prepare for the next pre-release immediately. Otherwise, your next push to `@master` will be tagged with `1.0.0-master` instead of `1.0.1-master`.
+After you publish `1.0.0`, you may want to prepare for the next pre-release immediately. Otherwise, your next push to `@master` will be tagged with `1.0.0-master.*` instead of `1.0.1-master.*`.
 
-1. Run `npm version prepatch`
-2. Run `git push`
+1. Run `git status` to make sure you have no additional changes
+2. Run `git pull`, to pull the latest `1.0.0` version bump back to your box
+3. Run `npm version prepatch --no-git-tag-version`, and inform npm not to tag prerelease version
+4. Run `git commit -a -m "1.0.1-0"`
+5. Run `git push`
