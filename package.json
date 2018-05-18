@@ -1,7 +1,7 @@
 {
   "name": "commit-publish-template",
   "version": "0.1.0-0",
-  "description": "",
+  "description": "My template for latest ES6 and CI/CD with Travis CI",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel --out-dir lib src/. --ignore **/*.spec.js,**/*.test.js",
@@ -13,6 +13,13 @@
   "files": [
     "lib/**/*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compulim/commit-publish.git"
+  },
+  "bugs": {
+    "url": "https://github.com/compulim/commit-publish/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
