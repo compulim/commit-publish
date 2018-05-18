@@ -16,10 +16,10 @@ We depends on [`version-from-git`](https://npmjs.com/package/version-from-git) t
 
 You will need to setup:
 
-* Your project
-* Travis CI
-* NPM token for publish
-* GitHub token for release
+* [Your project](setup-your-project)
+* [Travis CI](enable-travis-ci)
+* [NPM token for publish](update-npm-token)
+* [GitHub token for release](update-github-token)
 
 ### Setup your project
 
@@ -36,26 +36,28 @@ Enable Travis CI first so we can use the per-project public key to encrypt secre
 1. Visit your [Profile page](https://travis-ci.org/profile) on Travis
 2. Click "Sync account"
 3. Enable Travis CI for your project
-4. In project settings, enable "Build pushed branches"
-   * You may want to "Limit concurrent jobs" to 1 if you tend to push tags and commits quickly
 
-### Update NPM token in `.travis.yml`
+> Make sure "Build pushed branches" is enabled (by default)
+
+> You may want to "Limit concurrent jobs" to 1 if you tend to push tags and commits quickly
+
+### Update NPM token
 
 NPM token is required to run `npm publish`.
 
 1. Run `npm token create` and write down the GUID token
-2. Encrypt the token using Travis CLI or thru a [webpage](https://travis-encrypt.github.io/)
-   * `docker pull caktux/travis-cli`
-   * `docker run --rm caktux/travis-cli encrypt 12345678-1234-5678-abcd-12345678abcd -r your-org/your-repo`
+2. Encrypt the token thru this [webpage](https://travis-encrypt.github.io/)
 3. Modify `.travis.yml`
    * Set `deploy.npm.api_key.secure` to the encrypted token
    * Set `deploy.npm.email` to your NPM email
 
-### Update GitHub token in `.travis.yml`
+> You can also use Docker image [`caktux/travis-cli`](https://hub.docker.com/r/caktux/travis-cli/) to do the encryption. Run `docker run --rm caktux/travis-cli encrypt 12345678-1234-5678-abcd-12345678abcd -r your-org/your-repo`
+
+### Update GitHub token
 
 GitHub token is required to create release automatically.
 
-1. On GitHub, create a personal access token with access to `repo`
+1. On GitHub, create a personal access token with access to `repo/public_repo` scope
 2. Encrypt the token using Travis CLI
 3. Modify `.travis.yml`
    * Set `deploy.releases.api_key.secure` to the encrypted token
