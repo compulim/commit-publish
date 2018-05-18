@@ -37,8 +37,6 @@ Enable Travis CI first so we can use the per-project public key to encrypt secre
 2. Click "Sync account"
 3. Enable Travis CI for your project
 
-> Make sure "Build pushed branches" is enabled (by default)
-
 > You may want to "Limit concurrent jobs" to 1 if you tend to push tags and commits quickly
 
 ### Update NPM token
@@ -51,19 +49,28 @@ NPM token is required to run `npm publish`.
    * Set `deploy.npm.api_key.secure` to the encrypted token
    * Set `deploy.npm.email` to your NPM email
 
-> You can also use Docker image [`caktux/travis-cli`](https://hub.docker.com/r/caktux/travis-cli/) to do the encryption. Run `docker run --rm caktux/travis-cli encrypt 12345678-1234-5678-abcd-12345678abcd -r your-org/your-repo`
-
 ### Update GitHub token
 
 GitHub token is required to create release automatically.
 
 1. On GitHub, create a personal access token with access to `repo/public_repo` scope
-2. Encrypt the token using Travis CLI
+2. Encrypt the token thru this [webpage](https://travis-encrypt.github.io/)
 3. Modify `.travis.yml`
    * Set `deploy.releases.api_key.secure` to the encrypted token
    * Set `deploy.releases.email` to your NPM email
 
-## Deploy a release
+## Deployment
+
+Now, you can do two types of deployment:
+
+* [Deploy as pre-release](#deploy-as-pre-release)
+* [Deploy as production release](#deploy-as-production-release)
+
+### Deploy as pre-release
+
+When your GitHub `master` branch receive a commit, either by accepting pull requests or pushing to master. Travis CI will build and publish to NPM automatically.
+
+### Deploy as production release
 
 We follow NPM standard steps to deploy a release.
 
@@ -87,20 +94,22 @@ To https://github.com/compulim/your-package.git
  * [new tag]         v1.0.0 -> v1.0.0
 ```
 
-When Travis CI completed, you can verify by:
+#### Release verification
 
 1. Visit [GitHub Releases](../../releases) should show `1.0.0` release with binaries attached
 2. Run `npm show your-package versions` should list `1.0.0`
 3. Run `npm dist-tags ls your-package` should tag `1.0.0` as `latest`
 
-After you publish `1.0.0`, you may want to prepare for the next pre-release immediately. Otherwise, your next push to `@master` will be tagged incorrectly with `1.0.0-master.*`, instead of `1.0.1-master.*`.
+#### Post-publish steps
 
-1. Run `npm version prepatch --no-git-tag-version`, and inform npm not to tag prerelease version
+Assume you published production release `1.0.0`, you may want to prepare for the next pre-release immediately. Otherwise, your next push to `master` branch could be tagged incorrectly as `1.0.0-master.*`, instead of `1.0.1-master.*`.
+
+1. Run `npm version prepatch --no-git-tag-version`
 2. Run `git commit -a -m "1.0.1-0"`
 3. Run `git push`
 
 ```
-$ npm version --no-git-tag-version 1.0.1-0
+$ npm version prepatch --no-git-tag-version
 v1.0.1-0
 
 $ git push
@@ -108,6 +117,12 @@ Total 0 (delta 0), reused 0 (delta 0)
 To https://github.com/compulim/your-package.git
    a9c47a7..d053fa6  master -> master
 ```
+
+# Addendum
+
+## Encrypting token using Docker
+
+You can also use Docker image [`caktux/travis-cli`](https://hub.docker.com/r/caktux/travis-cli/) to do the encryption. Run `docker run --rm caktux/travis-cli encrypt 12345678-1234-5678-abcd-12345678abcd -r your-org/your-repo`
 
 # Contributions
 
