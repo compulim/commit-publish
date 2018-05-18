@@ -16,10 +16,10 @@ We depends on [`version-from-git`](https://npmjs.com/package/version-from-git) t
 
 You will need to setup:
 
-* [Your project](setup-your-project)
-* [Travis CI](enable-travis-ci)
-* [NPM token for publish](update-npm-token)
-* [GitHub token for release](update-github-token)
+* [Your project](#setup-your-project)
+* [Travis CI](#enable-travis-ci)
+* [NPM token for publish](#update-npm-token)
+* [GitHub token for release](#update-github-token)
 
 ### Setup your project
 
