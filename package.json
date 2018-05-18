@@ -21,6 +21,14 @@
     "url": "https://github.com/compulim/commit-publish/issues"
   },
   "homepage": "https://github.com/compulim/commit-publish#readme",
+  "keywords": [
+    "branch",
+    "bump",
+    "commit",
+    "git",
+    "publish",
+    "version"
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
