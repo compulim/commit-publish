@@ -8,6 +8,8 @@ We want to use NPM [dist-tags](https://docs.npmjs.com/getting-started/using-tags
 
 We want to make sure every official packages, not pre-releases, will be tagged by GitHub Release.
 
+We depends on [`version-from-git`](https://npmjs.com/package/version-from-git) to bump package version based on Git branch/commit, like `1.0.0-master.1a2b3c4`.
+
 ## Setup your package
 
 ### Update NPM token in `.travis.yml`

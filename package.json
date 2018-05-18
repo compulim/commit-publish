@@ -1,6 +1,6 @@
 {
   "name": "commit-publish-template",
-  "version": "0.0.3-0",
+  "version": "0.1.0-0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -19,10 +19,6 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
-    "gulp": "^3.9.1",
-    "gulp-exec": "^3.0.1",
-    "jest": "^23.0.0-charlie.0",
-    "last-commit-log": "^1.0.3",
-    "semver": "^5.5.0"
+    "jest": "^23.0.0-charlie.0"
   }
 }
