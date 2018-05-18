@@ -104,12 +104,11 @@ To https://github.com/compulim/your-package.git
 
 Assume you published production release `1.0.0`, you may want to prepare for the next pre-release immediately. Otherwise, your next push to `master` branch could be tagged incorrectly as `1.0.0-master.*`, instead of `1.0.1-master.*`.
 
-1. Run `npm version prepatch --no-git-tag-version`
-2. Run `git commit -a -m "1.0.1-0"`
-3. Run `git push`
+1. Run `npm version prepatch`
+2. Run `git push`
 
 ```
-$ npm version prepatch --no-git-tag-version
+$ npm version prepatch
 v1.0.1-0
 
 $ git push
